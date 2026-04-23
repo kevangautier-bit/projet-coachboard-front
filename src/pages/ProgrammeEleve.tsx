@@ -28,12 +28,12 @@ type Seance = {
 
 type EleveProgramme = {
 	ID_ELEVE_PROGRAMME: number;
-	nom: string;
-	objectif: string;
-	duree: number;
-	date_debut: string;
-	date_fin: string;
-	statut: string;
+	NOM: string;
+	OBJECTIF: string;
+	DUREE: number;
+	DATE_DEBUT: string;
+	DATE_FIN: string;
+	STATUT: string;
 	ID_PROGRAMME: number;
 	seances: Seance[];
 };
@@ -124,30 +124,30 @@ export default function MonProgramme() {
 								<Typography
 									sx={{ fontWeight: 700, color: "#fff", fontSize: "1.1rem" }}
 								>
-									{p.nom}
+									{p.NOM}
 								</Typography>
 								<Chip
-									label={p.statut}
+									label={p.STATUT}
 									size="small"
 									sx={{
 										background:
-											p.statut === "actif"
+											p.STATUT === "actif"
 												? "rgba(34,197,94,0.15)"
 												: "rgba(122,143,166,0.15)",
-										color: p.statut === "actif" ? "#22c55e" : "#7a8fa6",
+										color: p.STATUT === "actif" ? "#22c55e" : "#7a8fa6",
 										fontWeight: 600,
 									}}
 								/>
 							</Box>
 							<Typography sx={{ color: "#7a8fa6", mb: 1 }}>
-								{p.objectif}
+								{p.OBJECTIF}
 							</Typography>
 							<Typography variant="body2" sx={{ color: "#7a8fa6", mb: 3 }}>
-								Durée : {formatDuree(p.duree)} · Du{" "}
-								{new Date(p.date_debut).toLocaleDateString("fr-FR")} au{" "}
+								Durée : {formatDuree(p.DUREE)} · Du{" "}
+								{new Date(p.DATE_DEBUT).toLocaleDateString("fr-FR")} au{" "}
 								{(() => {
-									const fin = new Date(p.date_debut);
-									fin.setDate(fin.getDate() + p.duree);
+									const fin = new Date(p.DATE_DEBUT);
+									fin.setDate(fin.getDate() + p.DUREE);
 									return fin.toLocaleDateString("fr-FR");
 								})()}
 							</Typography>

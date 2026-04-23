@@ -114,7 +114,7 @@ export default function SeanceEnCours() {
 				const progs = await apiFetch<EleveProgrammeActif[]>(
 					`/api/eleves-programmes/eleve/${user.id}`,
 				);
-				const actif = progs.filter((p) => p.statut === "En cours").at(-1);
+				const actif = progs.filter((p) => p.STATUT === "En cours").at(-1);
 				if (!actif) {
 					setErreur("Aucun programme actif pour le moment.");
 					setLoading(false);

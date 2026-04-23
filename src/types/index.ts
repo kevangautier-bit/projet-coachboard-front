@@ -100,7 +100,7 @@ export interface SeanceAvecProgramme extends Seance {
 export interface EleveProgrammeActif {
 	ID_ELEVE_PROGRAMME: number;
 	ID_PROGRAMME: number;
-	statut: string | null;
+	STATUT: string | null;
 }
 
 export interface SeanceJour {

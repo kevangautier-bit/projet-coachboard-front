@@ -27,14 +27,14 @@ type Seance = {
 };
 
 type EleveProgramme = {
-	id_eleve_programme: number;
+	ID_ELEVE_PROGRAMME: number;
 	nom: string;
 	objectif: string;
 	duree: number;
 	date_debut: string;
 	date_fin: string;
 	statut: string;
-	id_programme: number;
+	ID_PROGRAMME: number;
 	seances: Seance[];
 };
 
@@ -65,7 +65,7 @@ export default function MonProgramme() {
 				const progsAvecSeances = await Promise.all(
 					progs.map(async (p: EleveProgramme) => {
 						const seances = await apiFetch<Seance[]>(
-							`/api/seances/programme/${p.id_programme}`,
+							`/api/seances/programme/${p.ID_PROGRAMME}`,
 						);
 						const seancesAvecExercices = await Promise.all(
 							seances.map(async (s: Seance) => {
@@ -108,7 +108,7 @@ export default function MonProgramme() {
 				) : (
 					programmes.map((p) => (
 						<Box
-							key={p.id_eleve_programme}
+							key={p.ID_ELEVE_PROGRAMME}
 							sx={{
 								mb: 4,
 								p: 3,

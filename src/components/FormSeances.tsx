@@ -65,6 +65,25 @@ const SX_BTN = {
 	},
 };
 
+const MENU = {
+	PaperProps: {
+		sx: {
+			background: "#0f1b27",
+			border: "1px solid rgba(34,197,94,0.18)",
+			"& .MuiMenuItem-root": {
+				fontFamily: "'Barlow',sans-serif",
+				fontSize: "0.88rem",
+				color: "#e2e8f0",
+				"&:hover": { background: "rgba(34,197,94,0.08)" },
+				"&.Mui-selected": {
+					background: "rgba(34,197,94,0.12)",
+					color: "#22c55e",
+				},
+			},
+		},
+	},
+};
+
 export default function FormSeance({ programmeId, onSuccess }: Props) {
 	const [programmes, setProgrammes] = useState<Programme[]>([]);
 	const [loading, setLoading] = useState(false);
@@ -176,6 +195,7 @@ export default function FormSeance({ programmeId, onSuccess }: Props) {
 					<Select
 						value={form.jour}
 						onChange={(e) => setForm({ ...form, jour: e.target.value })}
+						MenuProps={MENU}
 					>
 						{[
 							"Lundi",
@@ -224,6 +244,7 @@ export default function FormSeance({ programmeId, onSuccess }: Props) {
 							onChange={(e) =>
 								setForm({ ...form, id_programme: e.target.value as number })
 							}
+							MenuProps={MENU}
 						>
 							{programmes.map((p) => (
 								<MenuItem key={p.ID_PROGRAMME} value={p.ID_PROGRAMME}>
